@@ -21,7 +21,13 @@ let landing = document.querySelector('.landing');
 
 function setLandingSize() {
     let headerHeight = document.querySelector('header').offsetHeight;
-    landing.style.height = `calc(100dvh - ${headerHeight}px)`;
+    if (window.innerWidth > 768) {
+        landing.style.height = `calc(100dvh - ${headerHeight}px)`;
+        document.querySelector('.landing .slides').style.height = `100%`;
+    } else {
+        landing.style.height = `calc(100dvh - ${headerHeight}px + ${document.querySelector('.search-form form').offsetHeight + 40}px)`;
+        document.querySelector('.landing .slides').style.height = `calc(100dvh - ${headerHeight}px)`;
+    }
 }
 
 setLandingSize();
