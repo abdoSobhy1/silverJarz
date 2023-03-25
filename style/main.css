@@ -729,6 +729,11 @@ input[type="submit"].btn {
   border-color: var(--black);
 }
 
+.about-us .info .btn:hover {
+  background-position: left -3px;
+  color: white;
+}
+
 @media screen and (max-width: 768px) {
   .about-us .info h3::after {
     right: 50%;
@@ -772,6 +777,14 @@ input[type="submit"].btn {
 .news-letter form {
   background-color: var(--black);
   border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid var(--black);
+  transition: 0.3s;
+}
+
+.news-letter form:focus-within {
+  border-color: var(--main-color);
 }
 
 .news-letter form input {
@@ -780,6 +793,7 @@ input[type="submit"].btn {
   border-radius: 50px;
   padding: 10px 20px;
   color: white;
+  width: 75%;
 }
 
 .news-letter form input::placeholder {
