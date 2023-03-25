@@ -122,9 +122,11 @@ function setPos() {
     }
 }
 setPos();
-
-document.querySelector('.search-form form').addEventListener('submit', function (e) {
-    e.preventDefault();
+let forms = document.querySelectorAll('form');
+forms.forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+    });
 });
 
 let dateInput = document.querySelector('input[type="date"]:required');
@@ -140,3 +142,36 @@ dateInput.addEventListener('change', function (e) {
     }
 });
 
+let leftPromoControler = document.querySelector('.left-controler');
+let rightPromoControler = document.querySelector('.right-controler');
+let promoContainer = document.querySelector('.slider-wrapper');
+let promo = document.querySelector('.slider-wrapper .promo');
+
+function slide(direction) {
+    if (direction == 'right') {
+        promoContainer.scroll({
+            top: 0,
+            left: promoContainer.scrollLeft + promo.offsetWidth,
+            behavior: "smooth",
+        });
+    } else {
+        promoContainer.scroll({
+            top: 0,
+            left: promoContainer.scrollLeft - promo.offsetWidth,
+            behavior: "smooth",
+        });
+    }
+}
+
+rightPromoControler.addEventListener('click', function () {
+    console.log('right');
+    slide('right');
+});
+
+leftPromoControler.addEventListener('click', function () {
+    console.log('left');
+    slide('left');
+});
+
+let creditsYear = document.querySelector(' .year');
+creditsYear.innerHTML = new Date().getFullYear();
