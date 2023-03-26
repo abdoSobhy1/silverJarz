@@ -226,8 +226,15 @@ header nav .sub-menu li a {
 }
 
 @media (max-width: 768px) {
+  header .top-bar {
+    padding: 10px 0;
+  }
   header .top-bar .container {
-    flex-direction: column;
+    font-size: 14px;
+    gap: 10px;
+  }
+  header .top-bar .top-bar__left {
+    flex-direction: column-reverse;
     gap: 10px;
   }
 
@@ -236,7 +243,7 @@ header nav .sub-menu li a {
   }
 
   .logo-phone {
-    width: 120px;
+    width: 100px;
   }
 
   header nav .container {
@@ -247,6 +254,7 @@ header nav .sub-menu li a {
   header nav .main-menu {
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     max-height: 0;
     position: absolute;
@@ -258,7 +266,7 @@ header nav .sub-menu li a {
   }
 
   header nav .main-menu.active {
-    max-height: 150dvh;
+    max-height: 150vh;
   }
 
   header nav .main-menu > li > a {

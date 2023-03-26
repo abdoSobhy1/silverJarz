@@ -16,6 +16,14 @@ menuToggle.addEventListener('click', function (e) {
     document.querySelector('.main-menu').classList.toggle('active');
 });
 
+function setMenuHeight() {
+    let headerHeight = document.querySelector('header').offsetHeight;
+    document.querySelector('.main-menu.active').style.height = `calc(100dvh - ${headerHeight}px)`;
+}
+
+window.addEventListener('resize', function () {
+    window.innerHeight > 768 ? setMenuHeight() : document.querySelector('.main-menu.active').style = "";
+});
 
 let landing = document.querySelector('.landing');
 
