@@ -1,0 +1,770 @@
+.landing-search {
+  background-image: url(../images/airport-terminal.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.landing-search::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 75, 90, 0.7);
+}
+
+.landing-search .container {
+  position: relative;
+  z-index: 1;
+  padding: 50px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.visa-form {
+  width: 100%;
+}
+
+.visa-form form {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.visa-form form > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: white;
+  gap: 10px;
+  padding: 5px 10px;
+  border-right: 1px solid var(--black);
+}
+
+.visa-form div label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.visa-form div label i {
+  cursor: pointer;
+}
+
+.visa-form input {
+  border: none;
+  border-radius: 0px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.visa-form input:not([type="submit"]):is(:focus, :hover, :focus-visible) {
+  outline: none;
+  border: none;
+}
+
+.visa-form input.btn {
+  background-image: none;
+  background-color: var(--main-color);
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+@media (max-width: 768px) {
+  .visa-form form {
+    flex-direction: column;
+  }
+
+  .visa-form input.btn {
+    width: 100%;
+    height: 65px;
+  }
+}
+
+.landing-search .stats {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.landing-search .stats .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.landing-search .stats .stat i {
+  font-size: 1.5rem;
+}
+
+.landing-search .stats .stat .info {
+  text-align: center;
+}
+
+.landing-search .stats .stat h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.visas .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 50px 15px;
+}
+
+.pop-visas {
+  border-right: 1px solid #aaaaaa;
+}
+@media (max-width: 768px) {
+  .visas .container {
+    grid-template-columns: 1fr;
+  }
+  .pop-visas {
+    border-right: none;
+  }
+}
+
+.pop-visas h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--main-color);
+}
+
+span.bold {
+  font-weight: 700;
+}
+
+.visas .pop-visas .visas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.visas .pop-visas .visas-list .visa {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 30px;
+  align-items: center;
+  cursor: pointer;
+  width: 100px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.visas .pop-visas .visas-list .visa:hover {
+  background-color: rgba(41, 75, 90, 0.2);
+}
+
+.visas .pop-visas .visas-list .visa.active {
+  background-color: rgba(41, 75, 90, 0.2);
+  border: 2px solid var(--main-color);
+  position: relative;
+}
+
+.visas .pop-visas .visas-list .visa.active::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--main-color);
+}
+
+.visas .pop-visas .visa-info {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 0;
+}
+
+.visas .pop-visas .visa-info > .price {
+  border-radius: 50%;
+  width: 120px;
+  aspect-ratio: 1;
+  background-color: var(--main-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.visas .pop-visas .visa-info > .price .price-value {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.visas .pop-visas .info h3 {
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.visas .pop-visas .info .program li {
+  position: relative;
+  margin-bottom: 16px;
+  font-weight: 400;
+  margin-left: 28px;
+}
+
+.visas .pop-visas .info .program li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: bold;
+  position: absolute;
+  left: -28px;
+  color: var(--main-color);
+}
+
+.visas .pop-visas .info .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: var(--main-color);
+  color: white;
+}
+
+.visas .pop-visas .info .btn:hover {
+  background: var(--black);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .visas .pop-visas .visa-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .visas .pop-visas .visa-info > .price {
+    width: 100%;
+    aspect-ratio: unset;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  .visas .pop-visas .info {
+    width: 100%;
+  }
+
+  .visas .pop-visas .info h3 {
+    text-align: center;
+  }
+
+  .visas .pop-visas .info .program {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .visas .pop-visas .info .program li {
+    margin-left: 0;
+  }
+  .visas .pop-visas .info .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.visas .reviews .socials {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .visas .reviews .socials {
+    justify-content: center;
+  }
+}
+.visas .reviews .socials .social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.visas .reviews .socials .social > i {
+  font-size: 2rem;
+}
+
+.visas .reviews .socials .review {
+  font-size: 20px;
+}
+
+.visas .reviews .socials .review h3 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.visas .reviews .socials .review h3 .bold {
+  font-size: 20px;
+}
+.visas .reviews .socials .review i {
+  font-size: 14px;
+}
+
+.visas .reviews .socials .facebook {
+  color: #3b5998;
+}
+
+.visas .reviews .socials .google {
+  color: #3876f8;
+}
+
+.visas .reviews .reviews-container h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 30px 0 45px 0;
+}
+
+@media (max-width: 768px) {
+  .visas .reviews .reviews-container > h3 {
+    text-align: center;
+  }
+}
+
+.visas .reviews .reviews-container .review {
+  --img-size: 60px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.visas .reviews .reviews-container .review::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+  width: 60%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.visas .reviews .reviews-container .review .user {
+  width: var(--img-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--black);
+}
+
+.visas .reviews .reviews-container .review .user img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.visas .reviews .reviews-container .review .details {
+  width: calc(100% - (var(--img-size) + 20px));
+}
+.visas .reviews .reviews-container .review .details h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.visas .reviews .reviews-container .review .details p {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.visas .reviews .reviews-container .review .details .user-info h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 15px 0 5px 0;
+  color: var(--main-color);
+}
+
+.visas .reviews .reviews-container .review .details .user-info .stars {
+  font-size: 12px;
+  color: var(--main-color);
+}
+
+.process .container {
+  padding: 50px 15px;
+}
+
+.process .container .types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.process .container .types button {
+  width: 100%;
+  max-width: 200px;
+  padding: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+  .process .container .types button {
+    width: auto;
+  }
+}
+
+.process .types button:hover,
+.process .types button.active {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.process .steps {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+.process .steps .step {
+  width: 33%;
+  padding: 20px;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: 0.3s;
+}
+
+.process .steps .step img {
+  max-width: 165px;
+}
+
+.process .steps .step:not(:last-child):after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #dadada;
+  top: 30%;
+  left: 50%;
+  z-index: -1;
+}
+
+@media screen and (max-width: 768px) {
+  .process .steps .step:not(:last-child):after {
+    width: 1px;
+    height: 100%;
+  }
+
+  .process .steps .step {
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: white;
+  }
+}
+
+.process .steps .step h3 {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.process .steps .step p {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 25px;
+}
+
+.visa-types {
+  background-color: #eee;
+}
+
+.visa-types .container {
+  padding: 50px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.visa-types .container .left h2 {
+  font-size: 2rem;
+  color: var(--main-color);
+  font-weight: 300;
+  line-height: 38px;
+  margin-bottom: 20px;
+}
+
+.visa-types .container .left h2 .bold {
+  display: block;
+  margin-top: 10px;
+}
+
+.visa-types .container .left p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+.visa-types .container .left .btn {
+  border-color: var(--main-color);
+  background: var(--main-color);
+  color: white;
+  display: inline-block;
+  padding: 10px;
+}
+
+.visa-types .left .btn:hover {
+  background: var(--black);
+}
+
+@media screen and (max-width: 768px) {
+  .visa-types .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .visa-types .container .left h2 {
+    text-align: center;
+  }
+  .visa-types .container .left h2 .bold {
+    margin-top: 0;
+    display: inline;
+  }
+  .visa-types .container .left .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.visa-types .right {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.visa-types .right .type {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.visa-types .right .type:hover {
+  box-shadow: 8px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.visa-types .right .type h3 {
+  color: var(--main-color);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.visa-types .right .type h3::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background-color: #dfdfdf;
+  bottom: -10px;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .visa-types .right .type h3 {
+    text-align: center;
+  }
+
+  .visa-types .right .type h3::after {
+    width: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.visa-types .right .type .description {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.visa-types .right .type .description p {
+  font-size: 16px;
+  line-height: 24px;
+  width: 90%;
+}
+
+.visa-types .right .type .description i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  border: 4px solid #dfdfdf;
+  font-size: 30px;
+  color: var(--main-color);
+  width: 80px;
+  aspect-ratio: 1;
+  transition: 0.3s;
+}
+
+.visa-types .right .type:hover .description i {
+  scale: 0.9;
+}
+
+.visa-types .right .type:first-of-type {
+  background-color: var(--main-color);
+  color: white;
+}
+
+.visa-types .right .type:first-of-type h3 {
+  color: white;
+}
+.visa-types .right .type:last-of-type {
+  background-color: var(--alt-color);
+  color: var(--black);
+}
+
+.visa-types .right .type:last-of-type h3 {
+  color: var(--black);
+}
+
+.visa-types .right .type:last-of-type h3::after {
+  background-color: var(--black);
+}
+
+.visa-types .right .type:last-of-type .description i {
+  color: var(--alt-color);
+}
+
+.why-us {
+  padding-block: 50px;
+}
+
+.why-us .container {
+  padding: 50px 15px;
+}
+
+.why-us .why-boxes {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.why-us .why-boxes .center {
+  flex: 1.6;
+}
+.why-us .why-boxes :is(.left, .right) {
+  flex: 1;
+}
+.why-us .why-boxes :is(.left, .right) div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-block: 20px;
+}
+
+.why-us .why-boxes :is(.left, .right) div:not(:last-child) {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.why-us .why-boxes :is(.left, .right) div h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+.why-us .why-boxes :is(.left, .right) div h3 span {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.why-us .why-boxes :is(.left, .right) div i {
+  font-size: 35px;
+  color: var(--main-color);
+  transition: 0.3s;
+}
+
+.why-us .why-boxes :is(.left, .right) div:hover i {
+  scale: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .why-us .why-boxes {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .why-us .why-boxes :is(.left, .right) {
+    width: 100%;
+  }
+  .why-us .why-boxes .center {
+    flex: 1;
+  }
+}
+
+.promos {
+  background-color: #eee;
+}
+
+.faq {
+  padding: 50px 0;
+}
+
+.faq .container {
+  padding: 50px 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.faq div input,
+.faq div select {
+  border: 1px solid #dfdfdf;
+  padding: 1rem 1.5rem;
+  width: 320px;
+  line-height: 2;
+}
+
+.faq div input:focus,
+.faq div select:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 768px) {
+  .faq div input,
+  .faq div select {
+    width: 100%;
+  }
+}
