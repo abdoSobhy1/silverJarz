@@ -96,7 +96,7 @@ function setPos() {
     let SlideControls = document.querySelector('.controls');
     if (window.innerWidth > 768) {
         let SlideContentPosition = document.querySelector('.active .slide-content').getBoundingClientRect();
-        SlideControls.style.top = `${SlideContentPosition.top - 20}px`;
+        SlideControls.style.top = `${SlideContentPosition.top + SlideContentPosition.height / 1.75}px`;
         SlideControls.style.right = `${SlideContentPosition.width / 2 + 20}px`;
     }
     else {

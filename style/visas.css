@@ -1,28 +1,5 @@
 .landing-search {
   background-image: url(../images/airport-terminal.jpg);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.landing-search::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(41, 75, 90, 0.7);
-}
-
-.landing-search .container {
-  position: relative;
-  z-index: 1;
-  padding: 50px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
 }
 
 .visa-form {
@@ -119,20 +96,22 @@
 
 .visas .container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 67% 33%;
   gap: 20px;
   padding: 50px 15px;
 }
 
 .pop-visas {
   border-right: 1px solid #aaaaaa;
+  padding-right: 20px;
 }
 @media (max-width: 768px) {
   .visas .container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
   }
   .pop-visas {
     border-right: none;
+    padding: 0;
   }
 }
 
@@ -187,98 +166,219 @@ span.bold {
 
 .visas .pop-visas .visa-info {
   margin-top: 30px;
-  display: flex;
-  align-items: center;
-  gap: 50px;
-  padding: 10px 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 60%;
+  grid-template-rows: min-content;
+  gap: 10px;
+  overflow-x: scroll;
+  overscroll-behavior-inline: contain;
+  padding: 0 1rem 1rem;
+  /* scroll-snap-type: inline mandatory; */
+  scroll-padding-inline: 1rem;
+}
+.visas .pop-visas .visa-info {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 
-.visas .pop-visas .visa-info > .price {
-  border-radius: 50%;
-  width: 120px;
-  aspect-ratio: 1;
-  background-color: var(--main-color);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+.visas .pop-visas .visa-info::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.visas .pop-visas .visa-info > .price .price-value {
-  font-size: 1.2rem;
+.visas .pop-visas .visa-info::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.visas .pop-visas .visa-info::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.visas .pop-visas .visa-info::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.visas .pop-visas .visa-info .visa-type {
+  background-color: #eee;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px;
+  /* scroll-snap-align: center; */
+}
+
+.visas .pop-visas .visa-type .title h3 {
+  text-align: left;
+  color: #333333;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.visas .pop-visas .visa-type .title p {
+  color: var(--main-color);
+  font-size: 22px;
   font-weight: 500;
 }
-
-.visas .pop-visas .info h3 {
-  font-size: 22px;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.visas .pop-visas .info .program li {
+.visas .pop-visas .visa-type .info {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  margin-bottom: 16px;
-  font-weight: 400;
-  margin-left: 28px;
+  padding-bottom: 20px;
 }
 
-.visas .pop-visas .info .program li::before {
-  content: "\f00c";
-  font-family: "Font Awesome 6 Free";
-  font-weight: bold;
+.visas .pop-visas .visa-type .info::after {
+  content: "";
   position: absolute;
-  left: -28px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-color);
+}
+
+.visas .pop-visas .visa-type .info .price {
+  color: #333333;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.visas .pop-visas .visa-type .info .price span:first-of-type {
   color: var(--main-color);
 }
 
-.visas .pop-visas .info .btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: var(--main-color);
-  color: white;
+.visas .pop-visas .visa-type .info .type-selector {
+  display: flex;
+  gap: 10px;
 }
 
-.visas .pop-visas .info .btn:hover {
-  background: var(--black);
-  color: white;
+.visas .pop-visas .visa-type .info .type-selector div:first-of-type {
+  position: relative;
+  left: -55px;
+}
+
+.visas .pop-visas .visa-type .info .type-selector input {
+  display: none;
+}
+
+.visas .pop-visas .visa-type .info .type-selector input + label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  top: -100%;
+  left: -55px;
+}
+
+.visas .pop-visas .visa-type .info .type-selector input + label::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 25px;
+  appearance: none;
+  background: white;
+  outline: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: inset 0 0 3px rgb(0 0 0 / 30%);
+  transition: 0.3s;
+}
+
+.visas .pop-visas .visa-type .info .type-selector input + label::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  appearance: none;
+  background: var(--main-color);
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgb(0 0 0 / 30%);
+  left: 0;
+  transition: 0.3s;
+}
+
+.visas
+  .pop-visas
+  .visa-type
+  .info
+  .type-selector
+  input:checked
+  + label::before {
+  background: var(--main-color);
+}
+
+.visas .pop-visas .visa-type .info .type-selector input:checked + label::after {
+  left: 30px;
+  background-color: white;
+}
+
+.visas .pop-visas .visa-type .type {
+  margin-top: 20px;
+}
+
+.visas .pop-visas .visa-type .type ul {
+  list-style: disc;
+}
+
+.visas .pop-visas .visa-type .type ul li {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.visas .pop-visas .visa-type .type ul li p {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 5px;
+}
+
+.visas .pop-visas .visa-type .type ul li::marker {
+  font-size: 12px;
+}
+
+.visas .pop-visas .visa-type.regular .type .express {
+  display: none;
+}
+
+.visas .pop-visas .visa-type.express .type .regular {
+  display: none;
+}
+
+.visas .pop-visas .visa-type .button {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.visas .pop-visas .visa-type .button .btn {
+  padding: 5px 15px;
+  font-size: 14px;
+  border-radius: 100px;
+  transition: 0.3s;
 }
 
 @media (max-width: 768px) {
   .visas .pop-visas .visa-info {
-    flex-direction: column;
+    scroll-snap-type: inline mandatory;
+    grid-auto-columns: 90%;
     gap: 20px;
   }
 
-  .visas .pop-visas .visa-info > .price {
-    width: 100%;
-    aspect-ratio: unset;
-    border-radius: 8px;
-    padding: 10px;
-  }
-  .visas .pop-visas .info {
-    width: 100%;
+  .visas .pop-visas .visa-info .visa-type {
+    scroll-snap-align: center;
+    margin: 0;
   }
 
-  .visas .pop-visas .info h3 {
-    text-align: center;
-  }
-
-  .visas .pop-visas .info .program {
-    display: flex;
+  .visas .pop-visas .visa-type .info {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    gap: 10px;
   }
-  .visas .pop-visas .info .program li {
-    margin-left: 0;
-  }
-  .visas .pop-visas .info .btn {
-    width: 100%;
-    text-align: center;
+  .visas .pop-visas .visa-type .type-selector {
+    transform: translateX(55px);
   }
 }
 
